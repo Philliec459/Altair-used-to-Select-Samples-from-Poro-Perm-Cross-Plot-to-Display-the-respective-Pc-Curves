@@ -27,5 +27,5 @@ The following are some example results using Altair where the data in cross plot
 
 ### Also added funcionality to Created an Upscaled Pc curve from Selected Data
 
-![Upscale_Pc.gif](Upscal_Pc.gif)
+![Upscale_Pc.gif](Upscale_Pc.gif)
 
