@@ -24,3 +24,8 @@ After all the Thomeer parameters were assigned to all the samples, then Ed used 
 The following are some example results using Altair where the data in cross plots can be selected and then the appropriate data for those selected samples are shown in the bar charts below the cross plots. 
 
 ![Pc_by_kphi.gif](Pc_by_kphi.gif)
+
+### Also added funcionality to Created an Upscaled Pc curve from Selected Data
+
+![Upscale_Pc.gif](Upscal_Pc.gif)
+
