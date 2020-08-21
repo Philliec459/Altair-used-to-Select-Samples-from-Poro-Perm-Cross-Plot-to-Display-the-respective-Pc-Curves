@@ -1,13 +1,16 @@
 # Interrogate Petrophysical data using Python's Interactive Altair
 The objective of this project is to interrogate Petrophysical core data using python's interacive Altair. 
 
-Clerke's Rosetta Stone Arab-D carbonate data(1) is show below in the display of our pandas DataFrame. This is Core analysis data. Clerke masterfully selected this dataset starting from thousands of qualified, inspected plug samples where the final 450 samples were randomly selected from the total group to create a very unique dataset in that covers the full range in poro-perm space and Petrophysical Rock Types (PRTs) in the Arab D Carbonate.
+### Data:
+
+Clerke's Rosetta Stone Arab-D carbonate data(1) is show below in the display of our pandas DataFrame. This is Core analysis data. Clerke masterfully selected this dataset starting from thousands of qualified, inspected plug samples where the final 450 samples were randomly selected from the total group to create a very unique dataset in that covers the full range in poro-perm space and Petrophysical Rock Types (PRTs) in the Arab D Carbonate. 
+
 High Pressure Mercury Injection (HPMI) was performed on each of the core plug samples too. The HPMI data was fit to the Thomeer hyperbolas for each pore system present in the sample giving us the Thomeer parameters Pd, G and Bulk Volume Occupied for each pore system.
 
 
-1) Clerke, E. A., Mueller III, H. W., Phillips, E. C., Eyvazzadeh, R. Y., Jones, D. H., Ramamoorthy, R., Srivastava, A., (2008) “Application of Thomeer Hyperbolas to decode the pore systems, facies and reservoir properties of the Upper Jurassic Arab D Limestone, Ghawar field, Saudi Arabia: A Rosetta Stone approach”, GeoArabia, Vol. 13, No. 4, p. 113-160, October, 2008.
+1) Clerke, E. A., Mueller III, H. W., Phillips, E. C., Eyvazzadeh, R. Y., Jones, D. H., Ramamoorthy, R., Srivastava, A., (2008) “Application of Thomeer Hyperbolas to decode the pore systems, facies and reservoir properties of the Upper Jurassic Arab D Limestone, Ghawar field, Saudi Arabia: A Rosetta Stone approach”, GeoArabia, Vol. 13, No. 4, p. 113-160, October, 2008. 
 
-### 3) Thomeer Parameters and Petrophysical Rock Types:
+### Thomeer Parameters and Petrophysical Rock Types:
 
 A Thomeer hyperbola is fit to the HPMI data by optimizing on the Thomeer Parameters G1, Pd1 and BV1 for the first pore system and G2, Pd2 and BV2 for the second. The following image relates the Thomeer hyperbola (dashed black line) to the Capillary Pressure Curve (solid red line). Ed Clerke used hist famous Thomeer Parameter spreadsheet with solver to determine the correct set of Thomeer parameters for each sample.  
 
@@ -27,7 +30,7 @@ The following are some example results using Altair where the data in cross plot
 
 ![Upscale_Pc.gif](Upscale_Pc2.gif)
 
-### 4) Exact Mode of Pore Throat Distribution using Thomeer Parameters from Buiting Mode Equation:
+### Exact Mode of Pore Throat Distribution using Thomeer Parameters from Buiting Mode Equation:
 In Clerke's Arab D Rosetta Stone data, most of the macro-porous rock typically has a dual porosity system.  The Pore Throat Distribution (PTD) will have two modes as shown below. 
 
 ![Mode.png](attachment:Mode.png)
@@ -40,6 +43,6 @@ One of the benefits of working with Thomeer parameters is that the exact mode of
 
 Again, this equation gives us the mode of the pore system in microns, and we normally only calculate the mode for the largest pore system in the sample.
 
-## 5) Altair Interactivity starts with the Porosity vs. Permeability Cross Plot:
+## Altair Interactivity starts with the Porosity vs. Permeability Cross Plot:
 ### Porosity vs. Permeability Cross Plots showing PRT and Mode of PTD:
 The following code is used to display the Porosity vs. Permeability Cross Plots for our data. The first Cross Plot on the left shows Clerke's PRTs on the z color axis. The Cross Plot on the right shows the mode of the Pore Throat Distribution (PTD) on the z color axis. We also show a bar chart of the log10 of the Mode of the PTD for each PRT. 
