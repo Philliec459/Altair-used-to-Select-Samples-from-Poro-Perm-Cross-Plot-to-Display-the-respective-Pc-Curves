@@ -43,6 +43,4 @@ One of the benefits of working with Thomeer parameters is that the exact mode of
 
 Again, this equation gives us the mode of the pore system in microns, and we normally only calculate the mode for the largest pore system in the sample.
 
-## Altair Interactivity starts with the Porosity vs. Permeability Cross Plot:
-### Porosity vs. Permeability Cross Plots showing PRT and Mode of PTD:
-The following code is used to display the Porosity vs. Permeability Cross Plots for our data. The first Cross Plot on the left shows Clerke's PRTs on the z color axis. The Cross Plot on the right shows the mode of the Pore Throat Distribution (PTD) on the z color axis. We also show a bar chart of the log10 of the Mode of the PTD for each PRT. 
+
