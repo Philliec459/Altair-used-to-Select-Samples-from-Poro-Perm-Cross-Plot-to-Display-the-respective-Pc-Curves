@@ -24,5 +24,5 @@ After all the Thomeer parameters were assigned to all the samples, then Ed used 
 
 ### Also added funcionality to Created an Upscaled Pc curve from Selected Data
 
-![Upscale_Pc.gif](Upscale_Pc.gif)
+![Upscale_Pc.gif](Upscale_Pc2.gif)
 
