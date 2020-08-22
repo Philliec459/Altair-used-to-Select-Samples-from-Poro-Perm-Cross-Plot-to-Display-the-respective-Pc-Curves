@@ -38,6 +38,6 @@ One of the benefits of working with Thomeer parameters is that the exact mode of
 
     Mode(microns) = (exp(-1.15 * G) * (214/Pd))/2
 
-Again, this equation gives us the mode of the pore system in microns, and we normally only calculate the mode for the largest pore system in the sample. In another of our GitHub repositories we use this mode as the ground truth as to the most dominant pore throat and compare this to the calculated Winland r35 and Amaefule FZI and RQI. Winland's r35 and Amaefule RQI compare the most favorably in this data set. FZI or the mean hydraulic radius usually lies between the true modes in a bi-modal pore system rock from this dataset. 
+Again, this equation gives us the mode of the pore system in microns, and we normally only calculate the mode for the largest pore system in the sample. In another of our GitHub repositories we use this mode as the ground truth as to the most dominant pore throat and compare this to the calculated Winland r35 and Amaefule FZI and RQI. Winland's r35 and Amaefule RQI compare the most favorably in this data set. FZI, or the mean hydraulic radius as defined in the Amaefule paper, usually lies between the two modes of a bi-modal pore system rock from this dataset. 
 
 
