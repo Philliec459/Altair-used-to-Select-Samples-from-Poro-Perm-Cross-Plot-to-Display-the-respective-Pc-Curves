@@ -2,8 +2,9 @@
 The objective of this project is to interrogate Petrophysical core data using python's interacive Altair. 
 
 ### Data:
+Clerke's Rosetta Stone Arab-D carbonate data(1) is shown below in the display of our pandas DataFrame. This is Core analysis data. 
 
-Clerke's Rosetta Stone Arab-D carbonate data(1) is show below in the display of our pandas DataFrame. This is Core analysis data. Clerke masterfully selected this dataset starting from thousands of qualified, inspected plug samples where the final 450 samples were randomly selected from the total group to create a very unique dataset in that covers the full range in poro-perm space and Petrophysical Rock Types (PRTs) in the Arab D Carbonate. 
+Clerke masterfully selected this dataset starting from 1,000's of qualified, inspected core plug samples where the final 450 samples were randomly selected from this total group to create a very unique dataset in that covers the full range in poro-perm space and Petrophysical Rock Types (PRTs) in the Arab D. 
 
 High Pressure Mercury Injection (HPMI) was performed on each of the core plug samples too. The HPMI data was fit to the Thomeer hyperbolas for each pore system present in the sample giving us the Thomeer parameters Pd, G and Bulk Volume Occupied for each pore system.
 
@@ -12,11 +13,11 @@ High Pressure Mercury Injection (HPMI) was performed on each of the core plug sa
 
 ### Thomeer Parameters and Petrophysical Rock Types:
 
-A Thomeer hyperbola is fit to the HPMI data by optimizing on the Thomeer Parameters G1, Pd1 and BV1 for the first pore system and G2, Pd2 and BV2 for the second. The following image relates the Thomeer hyperbola (dashed black line) to the Capillary Pressure Curve (solid red line). Ed Clerke used hist famous Thomeer Parameter spreadsheet with solver to determine the correct set of Thomeer parameters for each sample.  
+A Thomeer hyperbola is fit to the HPMI data by optimizing on the Thomeer Parameters G1, Pd1 and BV1 for the first pore system and G2, Pd2 and BV2 for the second. The following image relates the Thomeer hyperbola (dashed black line) to the Capillary Pressure Curve (solid black line). Ed Clerke used hist famous Thomeer Parameter spreadsheet with solver to optimize on the correct set of Thomeer parameters for each sample.  
 
 ![thomeer.png](thomeer.png)
 
-After all the Thomeer parameters were assigned to all the samples, then Ed used the distributions of the the Initial Displacement Pressure (Pd) to devise his Petrophysical Rock Types (PRT) scheme. 
+After all the Thomeer parameters were assigned to all samples, then Dr. Clerke used the distributions of the Initial Displacement Pressure (Pd) to devise his Petrophysical Rock Types (PRT) scheme. 
 
 ![Rock-Types.png](Rock-Types.png)
 
@@ -37,6 +38,6 @@ One of the benefits of working with Thomeer parameters is that the exact mode of
 
     Mode(microns) = (exp(-1.15 * G) * (214/Pd))/2
 
-Again, this equation gives us the mode of the pore system in microns, and we normally only calculate the mode for the largest pore system in the sample.
+Again, this equation gives us the mode of the pore system in microns, and we normally only calculate the mode for the largest pore system in the sample. In another of our GitHub repositories we use this mode as the ground truth as to the most dominant pore throat and compare this to the calculated Winland r35 and Amaefule FZI and RQI. Winland's r35 and Amaefule RQI compare the most favorably in this data set. FZI or the mean hydraulic radius usually lies between the true modes in a bi-modal pore system rock from this dataset. 
 
 
