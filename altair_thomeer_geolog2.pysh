@@ -1,0 +1,178 @@
+#!/usr/bin/env python3
+# python loglan
+# When referencing Geolog variables in a Python script, names must always be lower case.
+
+# Imports
+
+from pandas import DataFrame
+
+import altair as alt
+alt.renderers.enable('altair_viewer')
+
+import pandas as pd
+import numpy as np
+import altair_transform
+alt.data_transformers.disable_max_rows()
+
+#read the file
+#file = r'./data/Pc_Results.xlsx'
+#df = pd.read_excel(file,index_col=False)
+
+
+
+import geolog
+
+
+# Load data from geolog
+while geolog.gettable():
+
+
+    df=pd.DataFrame({'porosity':porosity,'lperm':lperm,'lmode':lmode,'mode':mode,'bvocc':bvocc,'rock_index':rock_index,'sample':sample,'lpc':lpc,'lmicron':lmicron,'dbv':dbv})
+
+    interval = alt.selection_interval()
+    
+    base = alt.Chart(df).properties(
+        width=300,
+        height=375, 
+    ).add_selection(interval)
+    
+    
+    
+    kphi = alt.Chart(df).mark_point(filled=True, size=200).encode(
+        x='porosity:Q',
+        y='lperm:Q',
+        size='lmode:Q',
+        color=alt.condition(interval, 'rock_index:O', alt.value('lightgray'),scale=alt.Scale(scheme='rainbow')),
+        tooltip='mode:Q', 
+    ).properties(
+        width=500,
+        height=500, 
+    
+        title='Porosity vs. Permeability Cross Plot (PRT on Color Axis)',
+        selection=interval
+    )
+    
+    pc = alt.Chart(df).mark_line(clip=True).encode(
+        alt.X('bvocc:Q',
+            scale=alt.Scale(domain=(30, 0))
+        ),    
+        y='lpc:Q',
+        color=alt.condition(interval, 'rock_index:O', alt.value('lightgray'),scale=alt.Scale(scheme='rainbow')),
+        tooltip='mode:Q', 
+        strokeDash='sample:N',
+    ).properties(
+        title='Pc Curves with PRT on Color Axis (Upscaled Pc curve is thick Black Curve)',
+        width=500,
+        height=500, 
+        
+    ).transform_filter(
+        interval
+    )
+    
+    pc2 = alt.Chart(df).mark_line(strokeWidth=6).encode(
+        alt.X('bvocc:Q', aggregate='mean',
+              scale=alt.Scale(domain=(30, 0))
+             ),
+        alt.Y('lpc:Q'),
+        color=alt.value('black'),
+    ).properties(
+        #title='Upscaled Pc Curve with PRT as Color Axis',
+        width=500,
+        height=500, 
+        
+    ).transform_filter(
+        interval
+    )
+        
+    ptd = base.mark_line( clip=True).encode(
+        alt.X('lmicron:Q',
+            scale=alt.Scale(domain=(-2., 2.5))
+        ),    
+        alt.Y('dbv:Q',
+            scale=alt.Scale(domain=(0, 15))
+        ),    
+        color=alt.condition(interval, 'rock_index:O', alt.value('lightgray'),scale=alt.Scale(scheme='rainbow')),
+        strokeDash='sample:N',
+    ).properties(
+        title='Pore Throat Distribution (Microns)',
+        width=400,
+        height=200,
+    )
+    
+    ptd2 = base.mark_line( clip=True).encode(
+        alt.X('lmicron:Q',
+            scale=alt.Scale(domain=(-2., 2.5))
+        ),    
+        alt.Y('dbv:Q',
+            scale=alt.Scale(domain=(0, 15))
+        ),    
+        color=alt.condition(interval, 'rock_index:O', alt.value('lightgray'),scale=alt.Scale(scheme='rainbow')),
+        strokeDash='sample:N',
+    ).properties(
+        title='Pore Throat Distribution (Microns)',
+        width=400,
+        height=200,
+    ).transform_filter(
+        interval
+    )
+    
+    
+    hist2 = alt.Chart(df).mark_bar().encode(
+        alt.X('rock_index:O'),
+        #x='rock_index:O',
+        #y='lmode:Q',
+        alt.Y('mode:Q', scale=alt.Scale(type='log', base=10, domain=(0.001, 100.0)), axis=alt.Axis(orient='left') ),
+        color=alt.condition(interval, 'rock_index:O', alt.value('lightgray'),scale=alt.Scale(scheme='rainbow'))
+    ).properties(
+        title='Mode of Pore Throats by Petrophysical Rock Type (PRT)',
+        width=400,
+        height=500,
+        #selection=interval
+    )
+    
+    box = alt.Chart(df).mark_boxplot(extent='min-max').encode(
+        x='rock_index:O',
+        y='lmode:Q',
+        #color=alt.condition(interval, 'rock_index:O', alt.value('lightgray'),scale=alt.Scale(scheme='rainbow')),
+        color='rock_index:O',      
+    ).properties(
+        title='Box Plot by PRT ',
+        width=400,
+        height=500, 
+    
+    #).transform_filter(
+    #    interval
+    )
+
+    box2 = alt.Chart(df).mark_boxplot(extent='min-max').encode(
+        alt.X('rock_index:O'),
+        alt.Y('mode:Q', scale=alt.Scale(type='log', base=10, domain=(0.001, 100.0)), axis=alt.Axis(orient='left') ),
+        #color=alt.condition(interval, 'rock_index:O', alt.value('lightgray'),scale=alt.Scale(scheme='rainbow')),
+        color='rock_index:O',      
+    ).properties(
+        title='Box Plot of Mode of PTD by PRT ',
+        width=400,
+        height=500, 
+    
+    ).transform_filter(
+        interval
+    )
+
+    
+    
+    
+    #kphihist = kphi | hist2
+    kphihist = kphi | box2
+    
+    pchist = pc + pc2 | ptd & ptd2
+    
+    
+    plot = kphihist & pchist 
+    
+    plot.show()
+
+
+    # Store data into geolog
+    geolog.puttable()
+
+

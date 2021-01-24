@@ -1,0 +1,15 @@
+# spec : 
+LANGUAGE = PYTHON
+MODE: ARG:       VAR:       TYPE:     REPEAT: DEFAULT:   VALIDATION: LOCATION: UNIT: VISIBLE: TAB_LABEL: COMMENT=
+#==== ====       ====       =====     ======= ========   =========== ========= ===== ======== ========== ========                      
+INPUT FILE_IN    file_in    FILE      ""      ""         ""          ""        ""    TRUE     ""         "Input table (pipe)."
+INPUT SAMPLE     sample     NAME_REAL ""      SAMPLE     ""          LOG       ""    TRUE     ""         "Rosetta Stone Sample Number"
+INPUT POROSITY   porosity   NAME_REAL ""      POROSITY   ""          LOG       V/V   TRUE     ""         Porosity
+INPUT LPERM      lperm      NAME_REAL ""      LPERM      ""          LOG       ""    TRUE     ""         "Log of Permeability"
+INPUT MODE       mode       NAME_REAL ""      MODE       ""          LOG       ""    TRUE     ""         "Mode of PTD"
+INPUT LMODE      lmode      NAME_REAL ""      LMODE      ""          LOG       ""    TRUE     ""         "Log of Mode of PTD"
+INPUT BVOCC      bvocc      NAME_REAL ""      BVOCC      ""          LOG       ""    TRUE     ""         "BV Occupied"
+INPUT LPC        lpc        NAME_REAL ""      LPC        ""          LOG       ""    TRUE     ""         "Log of Pc"
+INPUT ROCK_INDEX rock_index NAME_REAL ""      ROCK_INDEX ""          LOG       ""    TRUE     ""         "PRT Rock Index"
+INPUT DBV        dbv        NAME_REAL ""      DBV        ""          LOG       ""    TRUE     ""         "Delta BVocc for PTD"
+INPUT LMICRON    lmicron    NAME_REAL ""      LMICRON    ""          LOG       ""    TRUE     ""         "Log of Microns of PTD"
