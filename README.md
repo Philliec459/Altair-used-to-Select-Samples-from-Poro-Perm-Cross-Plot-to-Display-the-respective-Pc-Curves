@@ -24,7 +24,7 @@ After all the Thomeer parameters were assigned to all samples, then Dr. Clerke u
 
 The following are some example results using Altair where the data in cross plots can be selected and then the appropriate data for those selected samples are shown in the bar charts below the cross plots. 
 
-![Upscale_Pc2.gif](geolog_altair_thomeer2.gif)
+![Upscale_Pc2.gif](geolog_altair_thomeer.gif)
 
 
 ### Exact Mode of Pore Throat Distribution using Thomeer Parameters from Buiting Mode Equation:
