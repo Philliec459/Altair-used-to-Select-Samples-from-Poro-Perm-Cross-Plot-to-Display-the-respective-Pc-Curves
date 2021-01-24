@@ -1,5 +1,5 @@
 # Interrogate Petrophysical data using Python's Interactive Altair
-The objective of this project is to interrogate Petrophysical core data using python's interacive Altair. 
+The objective of this project is to interrogate Petrophysical core data using python's interacive Altair. This program is also available with Geolog python loglans that are included in this repository. 
 
 ### Data:
 Clerke's Rosetta Stone Arab-D carbonate data(1) is shown below in the display of our pandas DataFrame. This is Core analysis data. 
